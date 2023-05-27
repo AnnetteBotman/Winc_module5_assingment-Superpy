@@ -97,6 +97,7 @@ Bij de start van het programma wordt een datumtekst aangemaakt. Deze wordt stand
 *python main.py time* is het hoofdcommando dat wordt gebruikt voor het aanroepen van datumfuncties
 
 *python main.py time --check*  geeft de datum zoals deze op dat moment staat ingesteld
+
 *python main.py time --advance* en een nummer(aantal dagen):  zet de datum **die op dat moment staat ingesteld** het aantal ingegeven dagen vooruit.
 
 ![Alt text](afbeeldingen/afb%204%20time.JPG)
