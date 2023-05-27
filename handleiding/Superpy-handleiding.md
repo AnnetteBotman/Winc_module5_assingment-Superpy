@@ -138,7 +138,7 @@ Hieronder voorbeelden van invoer met vooraf ingesteld datum, een eenmalige datum
 ## Het invoeren van verkochte producten
 De invoer van verkochte producten werkt grotendeels hetzelfde; check dus ook eerst voor het invoeren van één of meerder producten altijd de ingestelde datum met **python main.py --check** en pas deze zonodig aan. Dit is de datum die wordt gebruikt voor de verkoopdatum
 
-*python main.py sell* is het hoofdcommando dat wordt gebruikt voor het invoeren van verkochte producten
+**python main.py sell** is het hoofdcommando dat wordt gebruikt voor het invoeren van verkochte producten
 
 Type vervolgens in genoemde volgorde de gegevens over het product in,
 bij gebruik van de ingestelde datum:
@@ -157,7 +157,7 @@ Er wordt een melding gegeven als:
 
 -een combinatie van productnaam en expirydate niet aanwezig is in de voorraad
 
--als er niet genoeg items in voorraad zijn. Het aantal dat in voorraad was en dus verkocht kon worden, wordt toegevoegd aan het bestand "sold.scv"
+-als er niet genoeg items in voorraad zijn. De producten worden niet toegevoegd aan het bestand "sold.scv"
 
 Hieronder enkele voorbeelden van invoer en meldingen.
 
