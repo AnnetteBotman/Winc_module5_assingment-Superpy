@@ -114,9 +114,9 @@ geeft de ingevoerde datum terug
 
 ## Het invoeren van gekochte producten
 
-Check voor het invoeren van één of meerder producten altijd eerst de ingestelde datum met python main.py --check en pas deze zonodig aan. Dit is de datum die wordt gebruikt voor de inkoopdatum
+Check voor het invoeren van één of meerder producten altijd eerst de ingestelde datum met **python main.py --check** en pas deze zonodig aan. Dit is de datum die wordt gebruikt voor de inkoopdatum
 
-*python main.py buy* is het hoofdcommando dat wordt gebruikt voor het invoeren van gekochte producten
+**python main.py buy** is het hoofdcommando dat wordt gebruikt voor het invoeren van gekochte producten
 
 Type vervolgens in genoemde volgorde de gegevens over het product in,
 bij gebruik van de ingestelde datum:
@@ -136,7 +136,7 @@ Hieronder voorbeelden van invoer met vooraf ingesteld datum, een eenmalige datum
 ![Alt text](afbeeldingen/afb%205%20buyproduct.JPG)
 
 ## Het invoeren van verkochte producten
-De invoer van verkochte producten werkt grotendeels hetzelfde; check dus ook eerst voor het invoeren van één of meerder producten altijd de ingestelde datum met python main.py --check en pas deze zonodig aan. Dit is de datum die wordt gebruikt voor de verkoopdatum
+De invoer van verkochte producten werkt grotendeels hetzelfde; check dus ook eerst voor het invoeren van één of meerder producten altijd de ingestelde datum met **python main.py --check** en pas deze zonodig aan. Dit is de datum die wordt gebruikt voor de verkoopdatum
 
 *python main.py sell* is het hoofdcommando dat wordt gebruikt voor het invoeren van verkochte producten
 
@@ -169,7 +169,7 @@ Op basis van de ingevoerde gegevens kunnen diverse rapporten worden gegenereerd:
 
 Van ieder rapport wordt een tabel weergegeven, kan een grafiek worden getoond en kan een export worden gemaakt naar keuze: csv, excel of html. Deze worden in afzonderlijke directories opgeslagen met in de naam de ingevoerde datums.
 
-*python main.py report* is het hoofdcommando dat wordt gebruikt voor het maken van rapporten.  
+**python main.py report** is het hoofdcommando dat wordt gebruikt voor het maken van rapporten.  
 
 Vervolgens moet een subcommando worden gegeven (zonder streepjes ervoor):
 
@@ -192,16 +192,16 @@ Daarna volgt als subcommando (met streepjes ervoor) een datum of periode
 *--date* + maandinvoer (YYYY-MM) voor een maand
 
 
-Voorbeelden van het opvragen van rapporten:
->python main.py report inventory --now
+Voorbeelden van command's voor het opvragen van rapporten:
+- python main.py report inventory --now
 
->python main.py report profit --yesterday
+- python main.py report profit --yesterday
 
->python main.py report revenue --date 2023-05-23
+- python main.py report revenue --date 2023-05-23
 
->python main.py report revenue --date 2023-03-25 --date 22023-05-10
+- python main.py report revenue --date 2023-03-25 --date 22023-05-10
 
->python main.py report profit --date 2023-04   
+- python main.py report profit --date 2023-04   
 
 
 Na het generereren van een rapport wordt u de vraag gesteld of u een grafiek wilt zien. Kiest u ja, dan wordt de grafiek getoond en automatisch opgeslagen in de bijbehorende directory. 
@@ -253,4 +253,5 @@ reports_inventory
 reports_revenue
 
 en reports_profit
+
 ![Alt text](afbeeldingen/afb%2015.JPG)
