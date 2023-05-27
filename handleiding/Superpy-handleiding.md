@@ -28,7 +28,7 @@ Om gebruik te kunnen maken van Superpy dienen de volgende software en python-lib
 
 
 
-Download de bestanden voor Superpy van Github (https://github.com/AnnetteBotman/Winc_module5_assingment Superpy) en zet de folder Superpy in een (beveiligde) folder op het netwerk of PC. 
+Download de bestanden voor Superpy van Github (https://github.com/AnnetteBotman/Winc_module5_assingment-Superpy) en zet de folder Superpy in een (beveiligde) folder op het netwerk of PC. 
 
 Vervolgens kan via de commandline prompt in windows de directory worden aangepast en commando's worden ingevoerd.
 
