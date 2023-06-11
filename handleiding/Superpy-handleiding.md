@@ -28,7 +28,7 @@ Om gebruik te kunnen maken van Superpy dienen de volgende software en python-lib
 
 
 
-Download de bestanden voor Superpy van Github (https://github.com/AnnetteBotman/Winc_module5_assingment-Superpy) en zet de folder Superpy in een (beveiligde) folder op het netwerk of PC. 
+Download de bestanden voor Superpy van Github (https://github.com/AnnetteBotman/Winc-module-5-Superpy) en zet de folder Superpy in een (beveiligde) folder op het netwerk of PC. 
 
 Vervolgens kan via de commandline prompt in windows de directory worden aangepast en commando's worden ingevoerd.
 
@@ -76,7 +76,7 @@ Deze worden in de handleiding verder toegelicht met voorbeelden.
 - **time** --check  --advance  --setback  --setdate  --reset
 - **buy** vervolgens input gekochte producten
 - **sell** vervolgens input verkocht producten
-- **report** --inventory --revenue --profit
+- **report** inventory, revenue of profit
 - bij ieder rapport --now --yesterday --date --date2
 
 Voor help kan -h of --help worden ingetypt, dit geeft een korte hint voor de vereiste of te gebruiken commando's:
@@ -97,7 +97,6 @@ Bij de start van het programma wordt een datumtekst aangemaakt. Deze wordt stand
 *python main.py time* is het hoofdcommando dat wordt gebruikt voor het aanroepen van datumfuncties
 
 *python main.py time --check*  geeft de datum zoals deze op dat moment staat ingesteld
-
 *python main.py time --advance* en een nummer(aantal dagen):  zet de datum **die op dat moment staat ingesteld** het aantal ingegeven dagen vooruit.
 
 ![Alt text](afbeeldingen/afb%204%20time.JPG)
@@ -114,16 +113,16 @@ geeft de ingevoerde datum terug
 
 ## Het invoeren van gekochte producten
 
-Check voor het invoeren van één of meerder producten altijd eerst de ingestelde datum met **python main.py --check** en pas deze zonodig aan. Dit is de datum die wordt gebruikt voor de inkoopdatum
+Check voor het invoeren van één of meerder producten altijd eerst de ingestelde datum met python main.py --check en pas deze zonodig aan. Dit is de datum die als default waarde wordt gebruikt voor de inkoopdatum
 
-**python main.py buy** is het hoofdcommando dat wordt gebruikt voor het invoeren van gekochte producten
+*python main.py buy* is het hoofdcommando dat wordt gebruikt voor het invoeren van gekochte producten
 
 Type vervolgens in genoemde volgorde de gegevens over het product in,
 bij gebruik van de ingestelde datum:
 
 **productnaam &nbsp;&nbsp;&nbsp;aantal &nbsp;&nbsp;&nbsp; inkoopprijs (per stuk) &nbsp;&nbsp;&nbsp;expirydate**
 
-Is er bijvoorbeeld één product dat met een andere inkoopdatum ingevoerd moet worden, kan er een datum worden ingetypt en wordt de invoer:
+Is er bijvoorbeeld één product dat met een andere inkoopdatum ingevoerd moet worden, kan er een datum worden ingetypt en wordt dat de invoer:
 
 **datum &nbsp;&nbsp;&nbsp;productnaam &nbsp;&nbsp;&nbsp;aantal &nbsp;&nbsp;&nbsp;inkoopprijs (per stuk) &nbsp;&nbsp;&nbsp;expirydate**
 
@@ -136,18 +135,18 @@ Hieronder voorbeelden van invoer met vooraf ingesteld datum, een eenmalige datum
 ![Alt text](afbeeldingen/afb%205%20buyproduct.JPG)
 
 ## Het invoeren van verkochte producten
-De invoer van verkochte producten werkt grotendeels hetzelfde; check dus ook eerst voor het invoeren van één of meerder producten altijd de ingestelde datum met **python main.py --check** en pas deze zonodig aan. Dit is de datum die wordt gebruikt voor de verkoopdatum
+De invoer van verkochte producten werkt grotendeels hetzelfde; check dus ook eerst voor het invoeren van één of meerder producten altijd de ingestelde datum met python main.py --check en pas deze zonodig aan. Dit is de datum die wordt gebruikt voor de verkoopdatum
 
-**python main.py sell** is het hoofdcommando dat wordt gebruikt voor het invoeren van verkochte producten
+*python main.py sell* is het hoofdcommando dat wordt gebruikt voor het invoeren van verkochte producten
 
 Type vervolgens in genoemde volgorde de gegevens over het product in,
 bij gebruik van de ingestelde datum:
 
-**productnaam &nbsp;&nbsp;&nbsp;aantal &nbsp;&nbsp;&nbsp; verkoopprijs (per stuk) &nbsp;&nbsp;&nbsp;expirydate**
+**productnaam &nbsp;&nbsp;&nbsp;aantal &nbsp;&nbsp;&nbsp; verkoopprijs (per stuk)**
 
 Is er bijvoorbeeld één product dat met een andere verkoopdatum ingevoerd moet worden, kan er een datum worden ingetypt en wordt de invoer:
 
-**datum &nbsp;&nbsp;&nbsp;productnaam &nbsp;&nbsp;&nbsp;aantal &nbsp;&nbsp;&nbsp;verkoopprijs (per stuk) &nbsp;&nbsp;&nbsp;expirydate**
+**datum &nbsp;&nbsp;&nbsp;productnaam &nbsp;&nbsp;&nbsp;aantal &nbsp;&nbsp;&nbsp;verkoopprijs (per stuk)**
 
 Deze datum geldt slechts éénmalig.
 
@@ -157,11 +156,13 @@ Er wordt een melding gegeven als:
 
 -een combinatie van productnaam en expirydate niet aanwezig is in de voorraad
 
--als er niet genoeg items in voorraad zijn. De producten worden niet toegevoegd aan het bestand "sold.scv"
+-een product met meerdere expirydates in voorraad zijn (denk aan producten die lang houdbaar zijn als koffie of thee). De lijst van het product en de expirydates worden getoond en de gebruiker dient dan de expirydate van het verkochte product in te typen.
+
+-als er niet genoeg items in voorraad zijn. 
 
 Hieronder enkele voorbeelden van invoer en meldingen.
 
-![Alt text](afbeeldingen/afb%206%20sellproduct.JPG)
+![Alt text](<afbeeldingen/afb 6 sellproduct.JPG>)
 
 
 ## Het genereren van rapporten
@@ -169,7 +170,7 @@ Op basis van de ingevoerde gegevens kunnen diverse rapporten worden gegenereerd:
 
 Van ieder rapport wordt een tabel weergegeven, kan een grafiek worden getoond en kan een export worden gemaakt naar keuze: csv, excel of html. Deze worden in afzonderlijke directories opgeslagen met in de naam de ingevoerde datums.
 
-**python main.py report** is het hoofdcommando dat wordt gebruikt voor het maken van rapporten.  
+*python main.py report* is het hoofdcommando dat wordt gebruikt voor het maken van rapporten.  
 
 Vervolgens moet een subcommando worden gegeven (zonder streepjes ervoor):
 
@@ -192,16 +193,16 @@ Daarna volgt als subcommando (met streepjes ervoor) een datum of periode
 *--date* + maandinvoer (YYYY-MM) voor een maand
 
 
-Voorbeelden van command's voor het opvragen van rapporten:
-- python main.py report inventory --now
+Voorbeelden van het opvragen van rapporten:
+>python main.py report inventory --now
 
-- python main.py report profit --yesterday
+>python main.py report profit --yesterday
 
-- python main.py report revenue --date 2023-05-23
+>python main.py report revenue --date 2023-05-23
 
-- python main.py report revenue --date 2023-03-25 --date 22023-05-10
+>python main.py report revenue --date 2023-03-25 --date 22023-05-10
 
-- python main.py report profit --date 2023-04   
+>python main.py report profit --date 2023-04   
 
 
 Na het generereren van een rapport wordt u de vraag gesteld of u een grafiek wilt zien. Kiest u ja, dan wordt de grafiek getoond en automatisch opgeslagen in de bijbehorende directory. 
@@ -253,5 +254,6 @@ reports_inventory
 reports_revenue
 
 en reports_profit
-
 ![Alt text](afbeeldingen/afb%2015.JPG)
+
+[def]: afbeeldingen/afb%206%20sellproduct.JPG

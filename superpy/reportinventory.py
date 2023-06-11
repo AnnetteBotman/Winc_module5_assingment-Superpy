@@ -17,7 +17,9 @@ def inventoryreport(date, rep_label):
     dfb["buypr_total"] = dfb["buyamount"] * dfb["buyprice"]
     dfs["sellpr_total"] = dfs["sellamount"] * dfs["sellprice"]
 
-    # Filter tot en met datum
+    # Filter tot en met ingevoerde datum
+    # dfb filter is van gekochte producten (b=bought)
+    # dfs filter is van verkochte producten (s=sold)
     dfbmask = dfb["buydate"] <= date
     dfbfilter = dfb.loc[dfbmask]
     dfsmask = dfs["selldate"] <= date
@@ -29,10 +31,16 @@ def inventoryreport(date, rep_label):
     # ook inzicht geven in hoeveelheid producten die over datum zijn.
 
     if dfbfilter.empty:
+        # Als pandasdataframe van gekochte producten en verkochte
+        # producten leeg is, is er niets gekocht of verkocht t/m
+        # ingevoerde datum. Hiervan wordt een melding gemaakt.
         if dfsfilter.empty:
             print(f"No products bought or sold until {date} (day included)")
             exit()
         else:
+            # Als pandasdataframe van gekochte producten leeg is
+            # maar van verkochte producten niet, wordt deze lijst
+            # opgeslagen als inventarislijst en is dat het rapport.
             dfsgroup = dfsfilter.groupby(["buyid", "product", "expirydate"])[
                 "sellamount"
             ].sum()
@@ -45,6 +53,10 @@ def inventoryreport(date, rep_label):
             print(tabulate(dfsgroup, headers="keys", tablefmt="psql"))
             print(f"Only products sold, inventory of {rep_label}")
     if dfsfilter.empty:
+        # Als pandasdataframe van verkochte producten leeg is maar
+        # die van gekochte producten niet, wordt de lijst van
+        # gekochte producten opgeslagen als inventarislijst en
+        # is dat het rapport.
         dfbgroup = dfbfilter.groupby(["buyid", "product", "expirydate"])[
             "buyamount"
         ].sum()
@@ -54,7 +66,8 @@ def inventoryreport(date, rep_label):
         )
         print(tabulate(dfbgroup, headers="keys", tablefmt="psql"))
         print(f"Only products bought, inventory of {rep_label}")
-
+    # Als beide dataframes na filteren op datum NIET leeg zijn,
+    # worden de gegevens gecombineerd tot een inventarisrapport
     else:
         dfbgroup = dfbfilter.groupby(
             ["buyid", "product", "expirydate", "buypr_total"]

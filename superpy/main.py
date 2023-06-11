@@ -22,6 +22,12 @@ __human_name__ = "superpy"
 
 
 def main():
+    # textfile creeëren ivm met de functie time waarbij de tijd op
+    # bijvoorbeeld vandaag kan worden gezet, of aantal dagen vooruit/achteruit
+    # of op willekeurige datum
+
+    # en directories creeëren voor het opslaan van diverse rapportages
+    # en grafieken
     create_datetxtfile()
     create_reportdir()
     with open(pathlib.Path(__file__).parent / "dateset.txt") as f:
@@ -32,10 +38,17 @@ def main():
     )
     subparser = parser.add_subparsers(dest="command")
 
+    # subparsers maken voor de functies time, buy, sell en report
     time = subparser.add_parser("time", help="time help")
     buy = subparser.add_parser("buy", help="buy help")
     sell = subparser.add_parser("sell", help="sold help")
     report = subparser.add_parser("report", help="report help")
+
+    # met de functie tijd kan de buydate of selldate worden ingesteld
+    # op een bepaalde datum, deze wordt opgeslagen in dateset.txt filet.
+    # Bij de invoer van producten hoeft geen datum te worden ingevoerd,
+    # als default wordt de datum uit dateset.txt gebruikt.
+    # wel kan eenmalig een andere datum worden ingevoerd.
 
     time.add_argument(
         "--advance",
@@ -63,6 +76,11 @@ def main():
         help="shows the modified date",
     )
 
+    # buydate is een positional argument. Voordat producten worden ingevoerd
+    # moet met de functie time de juiste datum worden ingesteld.
+    # Vervolgens hoeft bij de invoer van producten dan geen datum te worden
+    # ingevoerd, als default wordt de datum uit dateset.txt gebruikt.
+    # wel kan eenmalig een andere datum worden ingevoerd.
     buy.add_argument(
         "buydate",
         type=str,
@@ -77,6 +95,11 @@ def main():
         "expirydate", type=str, help="Expirydate in YYYY-MM-DD format"
     )
 
+    # selldate is een positional argument. Voordat producten worden ingevoerd
+    # moet met de functie time de juiste datum worden ingesteld
+    # Vervolgens hoeft bij de invoer van producten dan geen datum te worden
+    # ingevoerd, als default wordt de datum uit dateset.txt gebruikt.
+    # wel kan eenmalig een andere datum worden ingevoerd.
     sell.add_argument(
         "selldate",
         type=str,
@@ -87,9 +110,6 @@ def main():
     sell.add_argument("product", type=str, help="The product you sold")
     sell.add_argument("amount", type=int, help="Amount of products sold")
     sell.add_argument("sellprice", type=float, help="Price of product sold")
-    sell.add_argument(
-        "expirydate", type=str, help="Expirydate in YYYY-MM-DD format"
-    )
 
     report.add_argument(
         "report",
@@ -115,7 +135,7 @@ def main():
             with open(
                 pathlib.Path(__file__).parent / "dateset.txt", "r+"
             ) as t:
-                datechange = t.read()
+                datechange = t.read().rstrip()
                 if args.advance:
                     datechange = (
                         dt.strptime(datechange, "%Y-%m-%d").date()
@@ -175,10 +195,8 @@ def main():
             args.product,
             args.amount,
             args.sellprice,
-            args.expirydate,
         ]
         validate_date(args.selldate)
-        validate_date(args.expirydate)
         append_buyid(productsold)
 
     elif args.command == "report":
